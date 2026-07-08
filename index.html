@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PsychoPoche — fiches, quiz et révisions pour la L1 Psychologie à l'Université de Poitiers.">
+  <title>PsychoPoche — L1 Psychologie Poitiers</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#accueil" aria-label="PsychoPoche, accueil">
+      <span class="brand-mark">P</span>
+      <span>PsychoPoche<small>L1 · Poitiers</small></span>
+    </a>
+    <nav aria-label="Navigation principale">
+      <a href="#programme">Cours</a>
+      <a href="#methode">Méthode</a>
+      <button class="nav-quiz" data-open-quiz>Quiz minute <span>→</span></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span> Le cerveau aime les petites bouchées</div>
+        <h1>Ta L1 psycho,<br><em>enfin mémorable.</em></h1>
+        <p class="hero-intro">Des cours synthétiques, des notions décodées et des quiz rapides — calés sur le programme de L1 Psychologie à Poitiers.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#programme">Explorer les cours <span>↓</span></a>
+          <button class="button ghost" data-surprise>Surprends-moi <span>✦</span></button>
+        </div>
+        <div class="hero-proof">
+          <div class="avatars" aria-hidden="true"><i>🧠</i><i>📚</i><i>🔬</i></div>
+          <p><strong>12 UE · 60 ECTS</strong><br>Tout le programme, deux semestres</p>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="Aperçu d'une fiche de révision">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="brain-blob"><span>🧠</span><i class="spark s1">✦</i><i class="spark s2">✦</i></div>
+        <article class="float-card card-memory">
+          <small>À retenir</small>
+          <strong>Mémoire ≠ stockage passif</strong>
+          <div class="mini-progress"><i></i></div>
+        </article>
+        <article class="float-card card-streak"><span>🔥</span><div><strong>4 jours</strong><small>de suite</small></div></article>
+        <article class="float-card card-score"><small>Quiz express</small><strong>8 / 10</strong><span>Bien joué !</span></article>
+        <div class="scribble">répète → rappelle → retiens</div>
+      </div>
+    </section>
+
+    <section class="dashboard" aria-label="Ta progression">
+      <div><span class="dash-icon coral">◎</span><p><strong id="progressCount">0 / 12</strong><small>UE commencées</small></p></div>
+      <div><span class="dash-icon yellow">✓</span><p><strong id="quizCount">0 quiz</strong><small>terminé pour l'instant</small></p></div>
+      <div class="dash-progress"><p><strong>Ton avancée</strong><small id="progressLabel">C'est le bon jour pour commencer.</small></p><div class="progress-track"><i id="progressBar"></i></div></div>
+    </section>
+
+    <section class="program" id="programme">
+      <div class="section-heading">
+        <div><div class="eyebrow"><span></span> Le programme</div><h2>Choisis ton prochain<br><em>terrain d’exploration.</em></h2></div>
+        <div class="semester-tabs" role="tablist" aria-label="Filtrer par semestre">
+          <button class="active" data-filter="all">Toute l’année</button>
+          <button data-filter="1">Semestre 1</button>
+          <button data-filter="2">Semestre 2</button>
+        </div>
+      </div>
+      <div class="course-grid" id="courseGrid"></div>
+    </section>
+
+    <section class="method" id="methode">
+      <div class="method-note"><span>La méthode</span><h2>Lire moins.<br>Se tester plus.</h2><p>Relire donne une impression de maîtrise. Se rappeler sans regarder construit vraiment la mémoire.</p></div>
+      <ol>
+        <li><b>01</b><div><strong>Comprends</strong><p>Lis la synthèse et reformule chaque idée avec tes mots.</p></div></li>
+        <li><b>02</b><div><strong>Rappelle</strong><p>Ferme la fiche. Note tout ce qui te revient, même imparfaitement.</p></div></li>
+        <li><b>03</b><div><strong>Espace</strong><p>Reviens à J+1, J+3, J+7 puis J+21. Court, mais régulier.</p></div></li>
+      </ol>
+    </section>
+  </main>
+
+  <footer><div class="brand"><span class="brand-mark">P</span><span>PsychoPoche<small>L1 · Poitiers</small></span></div><p>Un compagnon de révision indépendant — vérifie toujours les consignes de tes enseignants.</p><a href="https://formations.univ-poitiers.fr/fr/index/licence-XA/licence-XA/licence-psychologie-JAXL80K8.html" target="_blank" rel="noreferrer">Programme officiel ↗</a></footer>
+
+  <dialog class="course-dialog" id="courseDialog">
+    <button class="close" data-close aria-label="Fermer">×</button>
+    <div id="courseContent"></div>
+  </dialog>
+
+  <dialog class="quiz-dialog" id="quizDialog">
+    <button class="close" data-close-quiz aria-label="Fermer">×</button>
+    <div id="quizContent"></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
