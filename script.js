@@ -13,37 +13,213 @@ const courses = [
  {id:'s2-ue6',semester:2,ue:'UE 6 · 3 ECTS',title:'Outils & projet professionnel',icon:'◇',desc:'Recherche documentaire, numérique et découverte des métiers.',topics:['Documentation','Numérique','PPPE'],theory:`<h3>Construire une veille</h3><p>Garde la requête utilisée, les critères de sélection et les références complètes. Classe les sources par question plutôt que par format. Un tableau « idée / preuve / limite / référence » facilite la synthèse.</p><h3>Le projet professionnel</h3><p>Le titre de psychologue nécessite en France une licence de psychologie puis un master de psychologie comprenant un stage professionnel. Mais la licence développe aussi des compétences transférables : analyse, enquête, rédaction, travail en équipe et traitement de données.</p><div class="key-box"><strong>Explorer concrètement</strong><p>Pour un métier : missions réelles, publics, lieux, formation, contraintes et compétences. Un entretien avec un professionnel vaut mieux qu’une image vague du métier.</p></div><h3>Stage facultatif</h3><p>S’il est choisi, prépare une question d’observation et un retour réflexif. Respecte confidentialité, limites de rôle et cadre institutionnel.</p>`}
 ];
 
-const questions=[
- {q:'Une corrélation élevée entre deux variables permet-elle de conclure à une causalité ?',a:['Oui, toujours','Oui, si l’échantillon est grand','Non, pas à elle seule'],good:2,why:'Une troisième variable ou une causalité inverse restent possibles.'},
- {q:'Quelle mémoire contient les connaissances générales, comme la capitale d’un pays ?',a:['Mémoire épisodique','Mémoire sémantique','Mémoire procédurale'],good:1,why:'La mémoire sémantique concerne les concepts et connaissances générales.'},
- {q:'Dans une expérience, que manipule le chercheur ?',a:['La variable indépendante','La variable dépendante','L’écart-type'],good:0,why:'La variable dépendante est mesurée ; la variable indépendante est manipulée.'},
- {q:'Se conformer pour être accepté par le groupe relève surtout de…',a:['L’influence normative','L’influence génétique','La validité externe'],good:0,why:'L’influence normative répond au besoin d’approbation et d’appartenance.'},
- {q:'Le potentiel d’action est…',a:['Un signal électrique tout-ou-rien','Une hormone','Un souvenir moteur'],good:0,why:'Il se propage le long de l’axone avant la transmission synaptique.'},
- {q:'Quel indicateur est le moins sensible aux valeurs extrêmes ?',a:['La moyenne','La médiane','La variance'],good:1,why:'La médiane dépend du rang central et résiste mieux aux extrêmes.'},
- {q:'Dans l’effet Stroop, il faut principalement…',a:['Consolider un souvenir','Inhiber une réponse automatisée','Se conformer au groupe'],good:1,why:'Il faut inhiber la lecture du mot pour nommer la couleur de l’encre.'},
- {q:'L’approche émique cherche surtout à…',a:['Comprendre une culture de l’intérieur','Trouver uniquement des universaux','Mesurer des neurones'],good:0,why:'Elle étudie les significations propres à un contexte culturel.'},
- {q:'En ergonomie, le travail réel désigne…',a:['La fiche de poste','Ce que la personne fait effectivement','Le travail idéal'],good:1,why:'L’activité réelle s’ajuste aux contraintes, aléas et objectifs concurrents.'},
- {q:'Pour mémoriser durablement, le plus efficace est de…',a:['Relire cinq fois de suite','Surligner tout le cours','Se tester à intervalles espacés'],good:2,why:'Le rappel actif et l’espacement renforcent la récupération future.'}
-];
+const learning={
+ 's1-ue1':{
+  details:['Wundt ouvre en 1879 à Leipzig un laboratoire souvent associé à la naissance de la psychologie expérimentale.','Watson puis Skinner défendent l’étude des conduites observables ; Pavlov met en évidence le conditionnement classique.','Freud propose une approche dynamique du psychisme organisée autour de l’inconscient et du conflit.','Le cognitivisme décrit l’esprit comme un système de traitement de l’information, sans réduire la pensée à une simple entrée-sortie.','Une théorie scientifique doit produire des hypothèses discutables et confrontables à des observations.'],
+  quizzes:[
+   {q:'Quel courant centre prioritairement son étude sur les comportements observables ?',a:['Le béhaviorisme','La psychanalyse','Le structuralisme'],good:0,why:'Le béhaviorisme privilégie les relations entre environnement, apprentissage et conduites observables.'},
+   {q:'À quelle date situe-t-on souvent la naissance de la psychologie expérimentale ?',a:['1779','1879','1979'],good:1,why:'Wundt fonde son laboratoire de Leipzig en 1879.'},
+   {q:'Quel concept est central dans la psychanalyse ?',a:['L’inconscient','L’écart-type','Le renforcement'],good:0,why:'La psychanalyse s’intéresse notamment aux processus inconscients et aux conflits psychiques.'},
+   {q:'Le cognitivisme étudie principalement…',a:['Le traitement de l’information','Uniquement les réflexes','Uniquement les groupes'],good:0,why:'Il modélise perception, attention, mémoire, langage et raisonnement.'},
+   {q:'Une explication biologique et une explication sociale sont-elles forcément incompatibles ?',a:['Oui','Non, elles peuvent se compléter','Seulement chez l’enfant'],good:1,why:'Un comportement peut être expliqué à plusieurs niveaux complémentaires.'}
+  ],
+  exercises:[
+   {title:'Comparer deux courants',prompt:'Compare le béhaviorisme et le cognitivisme selon leur objet, leur méthode et une limite.',hint:'Fais un tableau à trois colonnes.',answer:'Le béhaviorisme observe les conduites et les apprentissages ; le cognitivisme infère des processus mentaux à partir de tâches. Le premier risque de négliger les représentations, le second de simplifier l’expérience vécue.'},
+   {title:'Identifier un niveau d’analyse',prompt:'Un étudiant dort peu, échoue à un test et perd confiance. Propose une hypothèse biologique, cognitive et sociale.',hint:'Une hypothèse n’est pas encore une conclusion.',answer:'Biologique : fatigue et vigilance réduite. Cognitive : attention ou mémoire de travail perturbée. Sociale : pression évaluative ou comparaison aux pairs. Il faudrait ensuite recueillir des données.'},
+   {title:'Classer les champs',prompt:'Associe ces questions à un champ : mémoire de travail, influence des pairs, vieillissement, souffrance psychique.',hint:'Cognitive, sociale, développementale, clinique.',answer:'Mémoire de travail : cognitive ; influence des pairs : sociale ; vieillissement : développementale ; souffrance psychique : clinique.'}
+  ]
+ },
+ 's1-ue2':{
+  details:['Une variable indépendante est manipulée ou invoquée ; une variable dépendante constitue la mesure étudiée.','La moyenne résume le centre mais réagit fortement aux valeurs extrêmes ; la médiane repose sur le rang.','La variance et l’écart-type décrivent la dispersion autour de la moyenne.','Fiabilité signifie obtenir une mesure stable ; validité signifie mesurer ce que l’on prétend mesurer.','Corrélation, causalité et simple coïncidence doivent rester soigneusement distinguées.'],
+  quizzes:[
+   {q:'Dans une expérience, quelle variable est mesurée ?',a:['La variable dépendante','La variable indépendante','La population'],good:0,why:'La variable dépendante est l’effet ou la réponse observée.'},
+   {q:'Quel indicateur résiste le mieux aux valeurs extrêmes ?',a:['La moyenne','La médiane','La variance'],good:1,why:'La médiane dépend de la position centrale et non de la taille des valeurs extrêmes.'},
+   {q:'Une corrélation prouve-t-elle une causalité ?',a:['Toujours','Jamais aucune relation','Non, pas à elle seule'],good:2,why:'Une variable tierce ou une causalité inverse peuvent expliquer la relation.'},
+   {q:'Un outil mesure bien le concept annoncé : il possède une bonne…',a:['Validité','Étendue','Randomisation'],good:0,why:'La validité concerne l’adéquation entre mesure et construit.'},
+   {q:'L’écart-type renseigne sur…',a:['La dispersion','La causalité','La taille de la population'],good:0,why:'Il indique à quel point les valeurs s’écartent en moyenne du centre.'}
+  ],
+  exercises:[
+   {title:'Choisir le bon résumé',prompt:'Notes : 4, 10, 11, 12, 13. Calcule moyenne et médiane, puis choisis l’indicateur le plus représentatif.',hint:'Additionne puis divise par 5 ; ordonne les valeurs.',answer:'Moyenne = 10 ; médiane = 11. La médiane décrit mieux le groupe car la note 4 tire la moyenne vers le bas.'},
+   {title:'Variables d’une expérience',prompt:'On teste si 20 minutes de sieste améliorent un score de mémoire. Identifie VI, VD et une variable à contrôler.',hint:'Qu’est-ce qui change ? Qu’est-ce qui est mesuré ?',answer:'VI : sieste ou absence de sieste. VD : score de mémoire. Contrôles possibles : durée de sommeil nocturne, heure du test, difficulté des listes.'},
+   {title:'Corrélation trompeuse',prompt:'Les ventes de glaces et les coups de soleil augmentent ensemble. Propose une variable tierce.',hint:'Qu’est-ce qui influence les deux ?',answer:'La chaleur ou l’ensoleillement augmente à la fois l’achat de glaces et l’exposition au soleil.'}
+  ]
+ },
+ 's1-ue3':{
+  details:['L’approche étique recherche des dimensions comparables entre cultures ; l’approche émique étudie les significations internes à un groupe.','L’acculturation décrit les transformations liées au contact durable entre groupes culturels.','L’expérience esthétique mobilise perception, émotion, mémoire, attentes et conventions sociales.','La sélection naturelle porte sur des variations héritables affectant la reproduction, pas sur un projet conscient.','Une hypothèse évolutionniste n’établit ni qu’un comportement est inévitable ni qu’il est moralement souhaitable.'],
+  quizzes:[
+   {q:'L’approche émique vise à…',a:['Comprendre une culture de l’intérieur','Éliminer toute différence','Étudier uniquement les gènes'],good:0,why:'Elle privilégie les catégories et significations propres au contexte étudié.'},
+   {q:'L’ethnocentrisme consiste à…',a:['Prendre sa culture comme référence universelle','Apprendre une langue','Comparer deux moyennes'],good:0,why:'Il conduit à juger d’autres pratiques selon les seules normes de son groupe.'},
+   {q:'La perception d’une œuvre dépend-elle du contexte ?',a:['Non, jamais','Oui, avec les attentes et les conventions','Uniquement de sa taille'],good:1,why:'L’expérience esthétique résulte d’une interaction entre œuvre, sujet et contexte.'},
+   {q:'Une explication évolutionniste est-elle une justification morale ?',a:['Oui','Non','Seulement en laboratoire'],good:1,why:'Décrire une origine possible ne dit pas ce qui est souhaitable.'},
+   {q:'L’acculturation apparaît lors…',a:['D’un contact durable entre cultures','D’un potentiel d’action','D’une expérience en double aveugle'],good:0,why:'Elle renvoie aux changements résultant du contact culturel.'}
+  ],
+  exercises:[
+   {title:'Émique ou étique ?',prompt:'Tu étudies la notion de réussite dans trois pays. Propose une question émique puis une question étique.',hint:'Intérieur du contexte versus comparaison commune.',answer:'Émique : « Que signifie réussir pour les étudiants de chaque pays ? » Étique : « Le même questionnaire de motivation prédit-il la réussite dans les trois pays ? »'},
+   {title:'Éviter l’ethnocentrisme',prompt:'Un chercheur qualifie une pratique éducative étrangère de “retardée”. Reformule scientifiquement.',hint:'Décrire avant de juger.',answer:'Décrire la pratique, son contexte, ses fonctions et les critères locaux, puis comparer ses effets sans hiérarchiser a priori les cultures.'},
+   {title:'Hypothèse évolutionniste',prompt:'Pourquoi le simple fait qu’un comportement soit fréquent ne prouve-t-il pas une adaptation ?',hint:'Pense à l’apprentissage et aux sous-produits.',answer:'Il peut résulter de la culture, de l’apprentissage, d’une contrainte ou être un sous-produit. Il faut formuler des prédictions testables et comparer des explications.'}
+  ]
+ },
+ 's1-ue4':{
+  details:['Le jeu d’exercice répète une action ; le jeu symbolique représente une situation absente ; le jeu à règles organise les interactions.','Pour Piaget, le jeu accompagne les transformations de la pensée ; pour Vygotski, il soutient l’apprentissage social et l’autorégulation.','La motivation intrinsèque repose sur l’intérêt pour l’activité, la motivation extrinsèque sur ses conséquences séparables.','Le sentiment d’efficacité personnelle, étudié par Bandura, influence l’engagement et la persévérance.','L’effet Pygmalion rappelle que les attentes sociales peuvent modifier subtilement les interactions éducatives.'],
+  quizzes:[
+   {q:'Faire semblant qu’un carton est une voiture relève du jeu…',a:['Symbolique','D’exercice','De hasard'],good:0,why:'Le jeu symbolique utilise un objet ou une action pour en représenter un autre.'},
+   {q:'La motivation intrinsèque vient surtout…',a:['De l’intérêt pour l’activité','D’une punition','D’une note uniquement'],good:0,why:'L’activité est réalisée pour la satisfaction qu’elle procure elle-même.'},
+   {q:'Le sentiment d’efficacité personnelle désigne…',a:['La croyance en sa capacité à réussir une action','Le QI','La mémoire sensorielle'],good:0,why:'Cette croyance influence effort, choix et persévérance.'},
+   {q:'Quel auteur souligne le rôle social du jeu ?',a:['Vygotski','Pavlov','Milgram'],good:0,why:'Vygotski insiste sur l’interaction, le langage et la zone proximale de développement.'},
+   {q:'Les attentes d’un enseignant peuvent-elles influencer les élèves ?',a:['Non','Oui, via les interactions','Uniquement à l’université'],good:1,why:'C’est le principe général étudié dans l’effet Pygmalion.'}
+  ],
+  exercises:[
+   {title:'Observer un jeu',prompt:'Décris une scène de jeu enfantin et identifie compétences cognitive, sociale et émotionnelle mobilisées.',hint:'Une même activité peut avoir plusieurs fonctions.',answer:'Exemple de jeu de rôle : représentation symbolique, négociation des rôles, langage, inhibition et régulation de la frustration.'},
+   {title:'Motivation',prompt:'Transforme une consigne uniquement extrinsèque en activité soutenant davantage l’autonomie.',hint:'Donne un choix et une raison.',answer:'Proposer plusieurs sujets, expliquer l’utilité de la tâche, offrir un retour informatif et permettre une stratégie personnelle.'},
+   {title:'Effet d’attente',prompt:'Imagine un protocole simple pour étudier l’effet des attentes d’un tuteur.',hint:'Même niveau initial, attentes différentes, mesure finale.',answer:'Répartir aléatoirement des apprenants comparables, induire chez les tuteurs des attentes différentes, standardiser la tâche puis comparer progrès et comportements des tuteurs.'}
+  ]
+ },
+ 's1-ue5':{
+  details:['Un abstract présente généralement contexte, objectif, méthode, résultats et conclusion.','Result désigne un résultat particulier ; evidence désigne l’ensemble des éléments soutenant une affirmation.','Participants, sample, measures et procedure appartiennent au vocabulaire de la méthode.','Suggest ou may indicate expriment une prudence que prove ne respecte souvent pas.','La lecture scientifique cherche l’argument central avant la traduction de chaque mot.'],
+  quizzes:[
+   {q:'En anglais scientifique, sample signifie…',a:['Échantillon','Exemple décoratif','Hypothèse'],good:0,why:'A sample est le groupe effectivement observé.'},
+   {q:'Quelle formule est la plus prudente ?',a:['The results prove','The results suggest','Everyone knows'],good:1,why:'Suggest respecte mieux l’incertitude propre aux données.'},
+   {q:'Où trouve-t-on la procédure ?',a:['Methods','References','Title'],good:0,why:'La section Methods décrit participants, matériel et procédure.'},
+   {q:'A finding est…',a:['Un résultat','Un biais','Un chercheur'],good:0,why:'Finding désigne une observation ou un résultat de recherche.'},
+   {q:'Faut-il traduire chaque mot avant de chercher l’idée générale ?',a:['Oui','Non','Uniquement les verbes'],good:1,why:'Une lecture par structure et mots-clés est plus efficace.'}
+  ],
+  exercises:[
+   {title:'Décoder un abstract',prompt:'Repère dans un résumé : aim, participants, method, main finding et limitation.',hint:'Utilise cinq couleurs ou cinq lignes.',answer:'La correction dépend du texte choisi : l’essentiel est de distinguer la question, qui a été étudié, comment, le résultat et sa limite.'},
+   {title:'Reformuler prudemment',prompt:'Reformule “This study proves that social media causes anxiety”.',hint:'Remplace proves et nuance causes.',answer:'“This study suggests an association between social media use and anxiety; causal conclusions require further evidence.”'},
+   {title:'Mini-glossaire',prompt:'Écris une phrase psychologique avec sample, bias et reliable.',hint:'Une seule phrase peut contenir les trois.',answer:'“A larger sample may reduce sampling bias, but it does not automatically make a measure reliable.”'}
+  ]
+ },
+ 's1-ue6':{
+  details:['La méthode Cornell sépare notes, mots-clés/questions et synthèse finale.','Une requête documentaire combine concepts, synonymes et opérateurs booléens AND, OR et NOT.','Une source primaire présente une recherche originale ; une source secondaire synthétise plusieurs travaux.','Paraphraser exige une reformulation réelle et la citation de la source.','Le rappel actif et la répétition espacée sont plus efficaces que la relecture massée.'],
+  quizzes:[
+   {q:'L’opérateur OR sert à…',a:['Ajouter des synonymes','Exiger deux concepts','Supprimer une source'],good:0,why:'OR élargit la recherche avec des termes alternatifs.'},
+   {q:'Un article présentant une expérience originale est une source…',a:['Primaire','Secondaire','Sans auteur'],good:0,why:'Il rend compte directement d’une étude.'},
+   {q:'Paraphraser dispense-t-il de citer ?',a:['Oui','Non','Seulement en TD'],good:1,why:'L’idée reste celle de l’auteur et doit être référencée.'},
+   {q:'Quelle stratégie favorise la mémoire durable ?',a:['Rappel actif espacé','Copie intégrale','Relecture immédiate répétée'],good:0,why:'Se tester à intervalles croissants renforce la récupération.'},
+   {q:'La méthode Cornell prévoit…',a:['Questions, notes et synthèse','Uniquement des dessins','Aucune hiérarchie'],good:0,why:'Elle facilite la transformation des notes en outil de révision.'}
+  ],
+  exercises:[
+   {title:'Construire une requête',prompt:'Crée une requête sur l’effet du sommeil sur la mémoire des étudiants.',hint:'Deux concepts et leurs synonymes.',answer:'(sleep OR sleep deprivation) AND (memory OR recall) AND (student OR undergraduate).'},
+   {title:'Transformer ses notes',prompt:'À partir d’une page de notes, écris trois questions de rappel et une synthèse de 50 mots.',hint:'Les réponses ne doivent pas être visibles dans la question.',answer:'La correction porte sur la hiérarchie : une question de définition, une de distinction et une d’application, puis une synthèse sans détails accessoires.'},
+   {title:'Planifier les rappels',prompt:'Tu apprends un chapitre lundi. Programme quatre rappels espacés.',hint:'J+1, J+3, J+7, J+21.',answer:'Mardi, jeudi, lundi suivant, puis trois semaines plus tard. Chaque rappel commence sans regarder la fiche.'}
+  ]
+ },
+ 's2-ue1':{
+  details:['Le développement est multidirectionnel : gains et pertes peuvent coexister au cours de la vie.','Piaget décrit des réorganisations de la pensée ; Vygotski insiste sur la médiation sociale et culturelle.','La mémoire de travail maintient et transforme temporairement l’information nécessaire à une tâche.','La mémoire épisodique concerne les événements vécus ; la sémantique, les connaissances ; la procédurale, les savoir-faire.','L’attention sélectionne l’information mais ses ressources sont limitées ; automatisation et contrôle se distinguent.'],
+  quizzes:[
+   {q:'Se souvenir de son premier jour à l’université relève de la mémoire…',a:['Épisodique','Sémantique','Procédurale'],good:0,why:'Il s’agit d’un événement personnel situé dans le temps et l’espace.'},
+   {q:'Savoir faire du vélo relève surtout de la mémoire…',a:['Procédurale','Épisodique','Sensorielle'],good:0,why:'Elle contient les habiletés progressivement automatisées.'},
+   {q:'La mémoire de travail permet de…',a:['Maintenir et manipuler brièvement','Stocker tout sans limite','Voir les couleurs'],good:0,why:'Elle soutient les activités en cours mais sa capacité est limitée.'},
+   {q:'Le développement est-il identique pour tous ?',a:['Oui','Non, les trajectoires varient','Seulement avant 6 ans'],good:1,why:'Biologie, expérience et contexte produisent une variabilité interindividuelle.'},
+   {q:'La perception est-elle une copie exacte du monde ?',a:['Oui','Non, elle construit une interprétation','Uniquement la nuit'],good:1,why:'Elle combine signaux sensoriels, contexte et connaissances.'}
+  ],
+  exercises:[
+   {title:'Classer des souvenirs',prompt:'Classe : capitale de l’Italie, anniversaire de tes 18 ans, taper au clavier.',hint:'Sémantique, épisodique, procédurale.',answer:'Rome : sémantique ; anniversaire : épisodique ; taper au clavier : procédurale.'},
+   {title:'Charge cognitive',prompt:'Explique pourquoi retenir un numéro tout en résolvant un problème difficile provoque des erreurs.',hint:'Les deux tâches partagent une ressource.',answer:'Elles sollicitent simultanément la mémoire de travail, dont la capacité limitée produit interférence et perte d’informations.'},
+   {title:'Observer le développement',prompt:'Propose une étude longitudinale et une étude transversale du vocabulaire.',hint:'Mêmes personnes dans le temps versus âges différents.',answer:'Longitudinale : suivre les mêmes enfants de 3 à 6 ans. Transversale : comparer simultanément des groupes de 3, 4, 5 et 6 ans.'}
+  ]
+ },
+ 's2-ue2':{
+  details:['L’influence normative répond au besoin d’acceptation ; l’influence informationnelle au besoin d’avoir raison.','Asch étudie le conformisme face à une majorité unanime ; Milgram l’obéissance à une autorité.','Une minorité cohérente et autonome peut faire évoluer progressivement les représentations.','La démarche clinique articule entretien, observation, histoire singulière et cadre théorique.','Déni, projection, déplacement et rationalisation sont des exemples de mécanismes de défense, à manier sans diagnostic sauvage.'],
+  quizzes:[
+   {q:'Se conformer pour être accepté relève de l’influence…',a:['Normative','Informationnelle','Neuronale'],good:0,why:'Le but principal est ici d’éviter le rejet social.'},
+   {q:'Asch étudie principalement…',a:['Le conformisme','La mémoire','Le potentiel d’action'],good:0,why:'Ses expériences montrent l’effet d’une majorité unanime sur le jugement.'},
+   {q:'Milgram étudie…',a:['L’obéissance à l’autorité','Le jeu symbolique','La perception visuelle'],good:0,why:'La situation examine jusqu’où une personne suit les injonctions d’une autorité.'},
+   {q:'Un mécanisme de défense est généralement…',a:['Inconscient','Une statistique','Toujours pathologique'],good:0,why:'Il protège le psychisme face à un conflit ou une tension.'},
+   {q:'La clinique vise-t-elle à réduire le sujet à une étiquette ?',a:['Oui','Non','Seulement en groupe'],good:1,why:'Elle s’intéresse à la singularité, l’histoire et au sens des symptômes.'}
+  ],
+  exercises:[
+   {title:'Analyser une influence',prompt:'Un étudiant adopte l’avis du groupe parce qu’il pense que les autres sont mieux informés. Quel processus ?',hint:'Normatif ou informationnel ?',answer:'Influence informationnelle : il utilise le groupe comme source de réalité.'},
+   {title:'Variante d’Asch',prompt:'Prédit l’effet de la présence d’un seul allié sur le conformisme et justifie.',hint:'L’unanimité est importante.',answer:'Le conformisme devrait diminuer : l’allié brise l’unanimité et réduit le coût social du désaccord.'},
+   {title:'Posture clinique',prompt:'Reformule “il est agressif” en observation clinique prudente.',hint:'Décris comportement, contexte et fréquence.',answer:'“Lors de trois échanges en groupe, il a élevé la voix et interrompu ses pairs après une critique.” Cela sépare observation et interprétation.'}
+  ]
+ },
+ 's2-ue3':{
+  details:['Un plan expérimental cherche à isoler l’effet de la VI sur la VD en contrôlant les facteurs confondants.','L’assignation aléatoire équilibre les groupes ; elle ne remplace ni un bon échantillonnage ni une mesure valide.','Le potentiel d’action suit la loi du tout-ou-rien ; l’intensité est notamment codée par sa fréquence.','À la synapse chimique, libération, fixation puis recapture ou dégradation structurent la transmission.','En ergonomie, tâche prescrite et activité réelle diffèrent car l’opérateur ajuste son action aux contraintes.'],
+  quizzes:[
+   {q:'Que manipule l’expérimentateur ?',a:['La VI','La VD','Le résultat final'],good:0,why:'La VI correspond au facteur dont on étudie l’effet.'},
+   {q:'Le potentiel d’action est…',a:['Tout-ou-rien','Proportionnel à chaque pensée','Une hormone'],good:0,why:'Une fois le seuil atteint, son amplitude est relativement constante.'},
+   {q:'Les neurotransmetteurs sont libérés au niveau…',a:['De la synapse','Du noyau cellulaire uniquement','De la rétine seulement'],good:0,why:'Ils traversent la fente synaptique et se fixent sur des récepteurs.'},
+   {q:'Le travail prescrit correspond…',a:['À ce qui est demandé','À toute l’activité réelle','À une émotion'],good:0,why:'L’activité réelle comprend les adaptations invisibles aux prescriptions.'},
+   {q:'L’assignation aléatoire sert surtout à…',a:['Rendre les groupes comparables','Augmenter automatiquement la validité externe','Supprimer toute erreur'],good:0,why:'Elle répartit en moyenne les caractéristiques individuelles entre conditions.'}
+  ],
+  exercises:[
+   {title:'Monter une expérience',prompt:'Teste l’effet du bruit sur l’attention : définis VI, VD, contrôle et hypothèse.',hint:'Deux niveaux de bruit et une même tâche.',answer:'VI : silence/bruit ; VD : précision ou temps à une tâche d’attention ; contrôles : matériel, durée, heure ; hypothèse : le bruit dégrade la performance.'},
+   {title:'Remettre la synapse en ordre',prompt:'Ordonne : fixation aux récepteurs, potentiel d’action, libération, recapture.',hint:'Commence par l’arrivée du signal.',answer:'Potentiel d’action → libération du neurotransmetteur → fixation aux récepteurs → recapture ou dégradation.'},
+   {title:'Travail réel',prompt:'Une caissière quitte la procédure pour aider un client âgé. Analyse sans parler de “faute”.',hint:'Objectifs concurrents et régulation.',answer:'Elle arbitre entre rapidité, qualité de service et besoin du client. L’écart révèle une régulation de l’activité face à une situation non prévue.'}
+  ]
+ },
+ 's2-ue4':{
+  details:['Le contrôle cognitif regroupe inhibition, flexibilité et mise à jour de la mémoire de travail.','Dans Stroop, lire le mot est automatisé tandis que nommer la couleur exige de contrôler l’interférence.','Les TCC analysent les relations entre pensées, émotions et comportements et utilisent des objectifs observables.','La propagande combine cadrage, répétition, émotion, crédibilité de la source et pression sociale.','La socialisation est plurielle : famille, école, pairs et médias transmettent parfois des normes contradictoires.'],
+  quizzes:[
+   {q:'Dans Stroop, il faut surtout…',a:['Inhiber la lecture automatique','Consolider un souvenir','Obéir à une autorité'],good:0,why:'Le mot interfère avec la dénomination de sa couleur.'},
+   {q:'Changer rapidement de règle mobilise…',a:['La flexibilité cognitive','La mémoire épisodique seule','Le conditionnement classique'],good:0,why:'La flexibilité permet d’abandonner un cadre devenu non pertinent.'},
+   {q:'Les TCC relient notamment…',a:['Pensées, émotions et comportements','Neurones et chromosomes uniquement','Jeu et art uniquement'],good:0,why:'Elles examinent les boucles qui entretiennent une difficulté.'},
+   {q:'Répéter un message peut augmenter…',a:['Sa familiarité','Sa vérité objective','La taille de l’échantillon'],good:0,why:'La familiarité peut être confondue avec la crédibilité.'},
+   {q:'L’enfant est-il passif dans sa socialisation ?',a:['Oui','Non, il interprète et agit','Seulement avant 2 ans'],good:1,why:'Il sélectionne, négocie et transforme aussi les influences reçues.'}
+  ],
+  exercises:[
+   {title:'Créer un Stroop',prompt:'Écris quatre stimuli congruents et quatre incongruents.',hint:'Le mot ROUGE peut être écrit en bleu.',answer:'Congruents : nom et encre identiques. Incongruents : ROUGE en bleu, VERT en rouge, BLEU en jaune, JAUNE en vert.'},
+   {title:'Décoder un message',prompt:'Analyse une publicité selon source, émotion, cadrage, répétition et comportement visé.',hint:'Une ligne par procédé.',answer:'La correction doit distinguer les procédés concrets du jugement moral et expliquer comment chacun peut orienter l’attention ou la décision.'},
+   {title:'Boucle TCC',prompt:'Situation : oral à venir. Construis une boucle pensée–émotion–comportement puis un levier.',hint:'Ex. “je vais rater” → peur → évitement.',answer:'Pensée catastrophique → anxiété → évitement → manque de préparation → pensée renforcée. Levier : exposition progressive et reformulation testable.'}
+  ]
+ },
+ 's2-ue5':{
+  details:['La lecture en trois passes va de l’architecture générale aux résultats, puis à l’évaluation critique.','Une figure doit être lue avec son titre, ses axes, ses unités, sa légende et l’incertitude représentée.','Results décrit les observations ; Discussion les interprète et les relie à la littérature.','Association, prediction et causation ne sont pas interchangeables.','Une présentation scientifique annonce la question, sélectionne un résultat central et reconnaît une limite.'],
+  quizzes:[
+   {q:'Quelle section interprète principalement les résultats ?',a:['Discussion','Methods','Title'],good:0,why:'La Discussion met les résultats en perspective et examine leurs limites.'},
+   {q:'Une figure se lit d’abord avec…',a:['Axes et légende','La biographie de l’auteur','Le nombre de pages'],good:0,why:'Ils définissent les variables, unités et groupes représentés.'},
+   {q:'Causation signifie…',a:['Causalité','Corrélation','Échantillon'],good:0,why:'Il désigne une relation de cause à effet.'},
+   {q:'One limitation is… sert à…',a:['Présenter une limite','Annoncer la question','Nommer les auteurs'],good:0,why:'Cette formule introduit une restriction méthodologique ou interprétative.'},
+   {q:'La section Results doit-elle inventer une explication ?',a:['Oui','Non, elle rapporte d’abord les observations','Toujours en français'],good:1,why:'L’interprétation développée appartient surtout à la Discussion.'}
+  ],
+  exercises:[
+   {title:'Pitch en cinq phrases',prompt:'Présente une étude en anglais : context, aim, method, result, limitation.',hint:'Une phrase simple par élément.',answer:'Exemple : “Sleep supports memory. This study examined students. Participants completed two recall tasks. The rested group performed better. The small sample limits generalization.”'},
+   {title:'Lire une figure',prompt:'Choisis une figure d’article et note variables, unités, groupes, tendance et incertitude.',hint:'Ne conclus pas avant d’avoir lu les axes.',answer:'La correction dépend de la figure ; les cinq éléments doivent être explicites et la tendance ne doit pas dépasser les données.'},
+   {title:'Nuancer un résultat',prompt:'Traduis prudemment : “Le groupe A a un score supérieur, donc la méthode fonctionne pour tous.”',hint:'Sépare observation et généralisation.',answer:'“Group A obtained a higher score in this sample; further research is needed before generalizing the effect.”'}
+  ]
+ },
+ 's2-ue6':{
+  details:['Le titre de psychologue requiert en France une licence et un master mention psychologie comportant un stage professionnel.','Le PPPE confronte intérêts personnels, réalités des métiers, formations et compétences à acquérir.','Un entretien métier prépare des questions sur activités réelles, contraintes, publics et trajectoire.','Une bibliographie structurée permet de retrouver les sources et de distinguer les niveaux de preuve.','Un stage d’observation implique confidentialité, consentement institutionnel et respect strict de son rôle.'],
+  quizzes:[
+   {q:'Pour porter le titre de psychologue en France, il faut notamment…',a:['Licence et master de psychologie','La L1 seule','Un stage de deux jours'],good:0,why:'Le cursus réglementaire va jusqu’au master et inclut un stage professionnel.'},
+   {q:'Le PPPE sert surtout à…',a:['Construire un projet réaliste','Établir un diagnostic','Remplacer les examens'],good:0,why:'Il relie connaissance de soi, formations, compétences et réalités professionnelles.'},
+   {q:'En stage, une information personnelle doit rester…',a:['Confidentielle','Publique','Sur les réseaux sociaux'],good:0,why:'La confidentialité protège les personnes et le cadre professionnel.'},
+   {q:'Une bonne question d’entretien métier porte sur…',a:['Une journée réelle de travail','Le signe astrologique','Uniquement le salaire'],good:0,why:'Les activités, contraintes et compétences donnent une image concrète du métier.'},
+   {q:'Classer les sources par question aide à…',a:['Construire une synthèse','Éviter toute citation','Supprimer les limites'],good:0,why:'Cela rapproche arguments, preuves et références pertinentes.'}
+  ],
+  exercises:[
+   {title:'Fiche métier',prompt:'Construis une fiche avec missions, publics, lieux, formation, contraintes et compétences.',hint:'Choisis un métier réellement accessible après le parcours visé.',answer:'La fiche doit citer au moins deux sources fiables et distinguer titre réglementé, secteur d’activité et poste concret.'},
+   {title:'Préparer un entretien',prompt:'Rédige cinq questions ouvertes pour un professionnel.',hint:'Commence par comment, quoi, quelles.',answer:'Exemples : journée type, imprévus, compétences clés, difficulté fréquente, conseil de formation. Évite les questions auxquelles le site répond déjà.'},
+   {title:'Dilemme de confidentialité',prompt:'Un proche demande ce que tu as observé en stage. Que peux-tu répondre ?',hint:'Parler des apprentissages sans identifier les personnes.',answer:'Présenter le cadre général et ce que tu as appris, sans nom, détail reconnaissable, dossier ni jugement sur une personne accompagnée.'}
+  ]
+ }
+};
+
+const questions=Object.values(learning).flatMap(pack=>pack.quizzes);
 
 const grid=document.querySelector('#courseGrid'), dialog=document.querySelector('#courseDialog'), content=document.querySelector('#courseContent'), quizDialog=document.querySelector('#quizDialog'), quizContent=document.querySelector('#quizContent');
-let progress=new Set(JSON.parse(localStorage.getItem('psychoProgress')||'[]')); let quizDone=Number(localStorage.getItem('psychoQuizDone')||0);
+let progress=new Set(JSON.parse(localStorage.getItem('psychoProgressV2')||'[]')); let quizDone=Number(localStorage.getItem('psychoQuizDone')||0);
 
 function renderCourses(filter='all'){
- grid.innerHTML=courses.filter(c=>filter==='all'||String(c.semester)===filter).map(c=>`<article class="course-card ${progress.has(c.id)?'is-done':''}" data-id="${c.id}"><div class="card-top"><span class="ue-tag">S${c.semester} · ${c.ue}</span><b>${c.icon}</b></div><h3>${c.title}</h3><p>${c.desc}</p><footer><span>${c.topics.length} chapitres</span><button aria-label="Ouvrir ${c.title}">→</button></footer></article>`).join('');
+ grid.innerHTML=courses.filter(c=>filter==='all'||String(c.semester)===filter).map(c=>`<article class="course-card ${progress.has(c.id)?'is-done':''}" data-id="${c.id}"><div class="card-top"><span class="ue-tag">S${c.semester} · ${c.ue}</span><b>${c.icon}</b></div><h3>${c.title}</h3><p>${c.desc}</p><footer><span>Fiche · 5 quiz · 3 exercices</span><button aria-label="Ouvrir ${c.title}">→</button></footer></article>`).join('');
  grid.querySelectorAll('.course-card').forEach(el=>el.addEventListener('click',()=>openCourse(el.dataset.id)));
 }
 function openCourse(id){
- const c=courses.find(x=>x.id===id); progress.add(id); saveProgress();
- content.innerHTML=`<div class="dialog-hero"><span class="ue-tag">Semestre ${c.semester} · ${c.ue}</span><h2>${c.title}</h2><p>${c.desc}</p></div><div class="dialog-body"><p class="eyebrow"><span></span> Synthèse théorique</p>${c.theory}<h3>Au programme</h3><ul>${c.topics.map(t=>`<li>${t}</li>`).join('')}</ul><button class="check-course" data-check>✓ Marquer cette UE comme commencée</button></div>`;
- dialog.showModal(); content.querySelector('[data-check]').onclick=()=>{dialog.close();toast('Progression enregistrée — joli départ !')};
+ const c=courses.find(x=>x.id===id),pack=learning[id];
+ content.innerHTML=`<div class="dialog-hero"><span class="ue-tag">Semestre ${c.semester} · ${c.ue}</span><h2>${c.title}</h2><p>${c.desc}</p></div><div class="dialog-body"><p class="eyebrow"><span></span> Synthèse théorique</p>${c.theory}<section class="detail-panel"><h3>Repères à connaître</h3><ul>${pack.details.map(t=>`<li>${t}</li>`).join('')}</ul></section><h3>Au programme</h3><ul>${c.topics.map(t=>`<li>${t}</li>`).join('')}</ul><section class="practice-zone"><span class="eyebrow">Passer à l’action</span><h3>Vérifie ce que tu sais</h3><p>Chaque lancement mélange les questions et tire deux exercices différents.</p><div class="practice-actions"><button class="practice-button quiz" data-course-quiz>▶ Faire 4 quiz aléatoires</button><button class="practice-button exercise" data-exercises>✎ Tirer 2 exercices</button></div><div class="exercise-area" data-exercise-area></div></section><button class="check-course ${progress.has(id)?'checked':''}" data-check ${progress.has(id)?'disabled':''}>${progress.has(id)?'✓ UE déjà commencée':'✓ Marquer cette UE comme commencée'}</button></div>`;
+ dialog.showModal();
+ content.querySelector('[data-check]').onclick=e=>{progress.add(id);saveProgress();e.currentTarget.textContent='✓ UE commencée';e.currentTarget.disabled=true;e.currentTarget.classList.add('checked');toast('Progression enregistrée — joli départ !')};
+ content.querySelector('[data-course-quiz]').onclick=()=>{dialog.close();startQuiz(id)};
+ content.querySelector('[data-exercises]').onclick=()=>showExercises(id);
 }
-function saveProgress(){localStorage.setItem('psychoProgress',JSON.stringify([...progress]));updateDashboard();renderCourses(document.querySelector('.semester-tabs .active').dataset.filter)}
+function saveProgress(){localStorage.setItem('psychoProgressV2',JSON.stringify([...progress]));updateDashboard();renderCourses(document.querySelector('.semester-tabs .active').dataset.filter)}
 function updateDashboard(){const pct=Math.round(progress.size/courses.length*100);document.querySelector('#progressCount').textContent=`${progress.size} / 12`;document.querySelector('#quizCount').textContent=`${quizDone} quiz${quizDone>1?'s':''}`;document.querySelector('#progressBar').style.width=pct+'%';document.querySelector('#progressLabel').textContent=pct===0?'C’est le bon jour pour commencer.':pct===100?'Tour complet — place à la répétition !':`${pct}% du terrain exploré. Continue !`}
 document.querySelectorAll('.semester-tabs button').forEach(b=>b.onclick=()=>{document.querySelector('.semester-tabs .active').classList.remove('active');b.classList.add('active');renderCourses(b.dataset.filter)});
 document.querySelector('[data-close]').onclick=()=>dialog.close(); dialog.onclick=e=>{if(e.target===dialog)dialog.close()};
-document.querySelectorAll('[data-open-quiz]').forEach(b=>b.onclick=startQuiz);document.querySelector('[data-close-quiz]').onclick=()=>quizDialog.close();quizDialog.onclick=e=>{if(e.target===quizDialog)quizDialog.close()};
+document.querySelectorAll('[data-open-quiz]').forEach(b=>b.onclick=()=>startQuiz());document.querySelector('[data-close-quiz]').onclick=()=>quizDialog.close();quizDialog.onclick=e=>{if(e.target===quizDialog)quizDialog.close()};
 document.querySelector('[data-surprise]').onclick=()=>openCourse(courses[Math.floor(Math.random()*courses.length)].id);
-function startQuiz(){let picked=[...questions].sort(()=>Math.random()-.5).slice(0,5),index=0,score=0;if(!quizDialog.open)quizDialog.showModal();show();function show(){const item=picked[index];quizContent.innerHTML=`<div class="quiz-wrap"><div class="quiz-meta"><span>Quiz minute</span><span>${index+1} / ${picked.length}</span></div><h2>Teste ta mémoire</h2><p class="quiz-question">${item.q}</p><div class="answers">${item.a.map((a,i)=>`<button class="answer" data-i="${i}">${a}</button>`).join('')}</div><div class="feedback"></div></div>`;quizContent.querySelectorAll('.answer').forEach(b=>b.onclick=()=>answer(b,item));}function answer(btn,item){const chosen=Number(btn.dataset.i),all=quizContent.querySelectorAll('.answer');all.forEach(b=>b.disabled=true);all[item.good].classList.add('correct');if(chosen!==item.good)btn.classList.add('wrong');else score++;const feed=quizContent.querySelector('.feedback');feed.innerHTML=`<b>${chosen===item.good?'Exact !':'Pas tout à fait.'}</b> ${item.why}<br><button class="next-question">${index===picked.length-1?'Voir mon score':'Question suivante →'}</button>`;feed.querySelector('button').onclick=()=>{index++;index<picked.length?show():finish()}}function finish(){quizDone++;localStorage.setItem('psychoQuizDone',quizDone);updateDashboard();quizContent.innerHTML=`<div class="quiz-wrap quiz-result"><span class="eyebrow">Session terminée</span><p class="big-score">${score}/5</p><h2>${score>=4?'Mémoire affûtée !':score>=2?'Ça prend forme.':'On consolide ?'}</h2><p>${score>=4?'Reviens demain pour espacer le rappel.':'Relis les explications, puis retente sans regarder.'}</p><button class="next-question" data-retry>Rejouer</button></div>`;quizContent.querySelector('[data-retry]').onclick=startQuiz}}
+function startQuiz(courseId=null){const pool=courseId?learning[courseId].quizzes:questions,amount=courseId?4:5;let picked=[...pool].sort(()=>Math.random()-.5).slice(0,amount),index=0,score=0;if(!quizDialog.open)quizDialog.showModal();show();function show(){const item=picked[index];quizContent.innerHTML=`<div class="quiz-wrap"><div class="quiz-meta"><span>${courseId?'Quiz du cours':'Quiz toutes matières'}</span><span>${index+1} / ${picked.length}</span></div><h2>Teste ta mémoire</h2><p class="quiz-question">${item.q}</p><div class="answers">${item.a.map((a,i)=>`<button class="answer" data-i="${i}">${a}</button>`).join('')}</div><div class="feedback"></div></div>`;quizContent.querySelectorAll('.answer').forEach(b=>b.onclick=()=>answer(b,item));}function answer(btn,item){const chosen=Number(btn.dataset.i),all=quizContent.querySelectorAll('.answer');all.forEach(b=>b.disabled=true);all[item.good].classList.add('correct');if(chosen!==item.good)btn.classList.add('wrong');else score++;const feed=quizContent.querySelector('.feedback');feed.innerHTML=`<b>${chosen===item.good?'Exact !':'Pas tout à fait.'}</b> ${item.why}<br><button class="next-question">${index===picked.length-1?'Voir mon score':'Question suivante →'}</button>`;feed.querySelector('button').onclick=()=>{index++;index<picked.length?show():finish()}}function finish(){quizDone++;localStorage.setItem('psychoQuizDone',quizDone);updateDashboard();const total=picked.length;quizContent.innerHTML=`<div class="quiz-wrap quiz-result"><span class="eyebrow">Session terminée</span><p class="big-score">${score}/${total}</p><h2>${score>=total-1?'Mémoire affûtée !':score>=Math.ceil(total/2)?'Ça prend forme.':'On consolide ?'}</h2><p>${score>=total-1?'Reviens demain pour espacer le rappel.':'Relis les explications, puis retente sans regarder.'}</p><button class="next-question" data-retry>Autre tirage</button></div>`;quizContent.querySelector('[data-retry]').onclick=()=>startQuiz(courseId)}}
+function showExercises(courseId){const area=content.querySelector('[data-exercise-area]'),picked=[...learning[courseId].exercises].sort(()=>Math.random()-.5).slice(0,2);area.innerHTML=picked.map((ex,i)=>`<article class="exercise-card"><span>Exercice ${i+1}</span><h4>${ex.title}</h4><p>${ex.prompt}</p><details><summary>Un indice</summary><p>${ex.hint}</p></details><button class="reveal-answer">Voir la correction</button><div class="exercise-answer" hidden><strong>Correction proposée</strong><p>${ex.answer}</p></div></article>`).join('');area.querySelectorAll('.reveal-answer').forEach(button=>button.onclick=()=>{const answer=button.nextElementSibling;answer.hidden=false;button.hidden=true})}
 function toast(msg){const t=document.querySelector('#toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2600)}
 renderCourses();updateDashboard();
